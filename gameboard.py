@@ -1,4 +1,4 @@
-from arepldump import dump
+# from arepldump import dump
 import os
 
 # SPACES:
@@ -46,8 +46,10 @@ class Gameboard:
         """ if x,y is a ship, mark X if blank mark O, leave X or O unchanged"""
         if self[x, y] == 'S':
             self[x, y] = 'X'
+            return True
         elif self[x, y] == ' ':
             self[x, y] = 'O'
+            return False
 
     def view(self, hide_symbols= ('S',)):
         result = ""
@@ -78,8 +80,8 @@ class Gameboard:
     def __str__(self):
         return self.view(tuple())
 
-def run():
-    x = Gameboard(3,3)
+def run(i):
+    x = Gameboard(i,i)
     print(x)
 
 if __name__ == "__main__":
