@@ -1,7 +1,10 @@
 
 def welcome():
     print("Welcome to Battleship!")
-    print()
+
+def ask_boardsize():
+    board_size = int(input("\nSelect board width and length.  Traditional Battleship is a 10x10 grid.\n"))
+    return board_size
 
 def show_board(board):
     print(board.view())
@@ -11,8 +14,8 @@ def get_attack_coords(board):
         value_x = input("x coordinate to attack: ")
         value_y = input("y coordinate to attack: ")
         try:
-            x = int(value_x)
-            y = int(value_y)
+            x = int(value_x) - 1
+            y = int(value_y) - 1
         except ValueError:
             print(" invalid input!")
             continue
@@ -22,5 +25,11 @@ def get_attack_coords(board):
         break
     return x, y
 
+def miss():
+    print("\nYou missed!!\n")
+
+def hit():
+    print("\nYou hit a ship!!\n")
+
 def goodbye():
-    print("You hit all the ships! Thanks for playing!")
+    print("You hit all the ships! Thanks for playing!\n")
